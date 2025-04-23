@@ -1,0 +1,33 @@
+{% extends 'master.html' %}
+
+
+{% block content %}
+
+  <h2>Chat with {{ other_user.username }}</h2>
+
+  <div class="chat-messages">
+    {% for msg in messages %}
+      <p>
+        <strong>{{ msg.sender.username }}:</strong> {{ msg.message }} <br>
+        <small>{{ msg.timestamp|date:"SHORT_DATETIME_FORMAT" }}</small>
+      </p>
+      {% if msg.attachment %}
+        <p><a href="{{ msg.attachment.url }}">Download Attachment</a></p>
+      {% endif %}
+      <hr>
+    {% endfor %}
+  </div>
+
+  <!--  Put the form HERE, outside the loop -->
+  <div class="chat-form">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Send</button>
+    </form>
+  </div>
+  <br>
+
+  <a href="{% url 'campus_crash:user_list' %}" style="text-decoration: none; color: blue;">&larr; Back to Members</a>
+
+{% endblock %}

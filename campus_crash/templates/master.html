@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Campus Crash{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    {% block style %}{% endblock %}
+</head>
+<body>
+
+    <!-- Navigation Bar (Menu) -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'campus_crash:index' %}">🏠 Home</a></li>
+            <li><a href="{% url 'campus_crash:user_list' %}" >👥 Users</a></li>
+            <li><a href="{% url 'campus_crash:notifications' %}">🔔 Notifications</a></li>
+            <!-- <li><a href="">📩 Messages</a></li> -->
+            <li><a href="{% url 'campus_crash:settings' %}">⚙️ Settings</a></li>
+            <li><a href="{% url 'campus_crash:register' %}">🔑 sign up</a></li>
+            <li><a href="{% url 'campus_crash:login' %}">🔑 Login</a></li>
+            <li><a href="{% url 'campus_crash:logout' %}"> LOGOUT</a></li>
+        </ul>
+    </nav> 
+
+    <!-- Main Content -->
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>📞 Contact Info: 0754065950</p>
+            <p>📧 Email Support: deotechnologiesl@gmail.com</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com" target="_blank">🌐 Facebook</a> |
+                <a href="https://www.twitter.com" target="_blank">🌐 X </a> |
+                <a href="https://www.instagram.com" target="_blank">🌐 Instagram</a>
+            </div>
+            <p>© Copyright 2025 Campus Crash</p>
+        </div>
+    </footer>
+
+</body>
+</html>

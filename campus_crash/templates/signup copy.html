@@ -1,0 +1,46 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block style %} 
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<h1>SIGN UP PAGE</h1>
+
+<div class="signup-container">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+<h2 style="text-align: center;">FILL THE SIGN UP PAGE BELOW </h2>
+<form action="{% url 'campus_crash:register' %}" method="post">
+{% csrf_token %}
+<input type="text" name = "first_name" placeholder="FIRST NAME" required>
+<input type="text" name = "last_name" placeholder="LAST NAME" required>
+<input type="date" name = "date_of_birth" placeholder="DATE OF BIRTH" required>
+<input type="text" name = "academic_year" placeholder="ACADEMIC YEAR" required>
+<input type="text" name = "tribe" placeholder=" YOUR TRIBE" >
+<input type="text" name = "tribe" placeholder="YOUR COURSE" required>
+<input type="email" name = "email" placeholder="Your university email" required>
+
+
+<input type="password" name = "password1" placeholder="Enter new password" required>
+<input type="password" name = "password2" placeholder="Confirm password" required>
+
+<button class="submt" onclick="loadloginTemplate()"> submit</button>
+
+
+
+</form>
+</div>
+
+
+{% endblock %}

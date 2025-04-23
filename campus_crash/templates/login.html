@@ -1,0 +1,46 @@
+{% extends 'master.html' %}
+
+
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+{% endif %}
+{% endif %}
+
+        {% if messages %}
+
+        {% for message in message %}
+            {{ messages }}
+        {% endfor %}
+
+        {% endif %}
+
+ {% block content %}
+<form method="post" action="{% url 'campus_crash:login' %}">
+{% csrf_token %}
+{{ form.non_field_errors }}
+
+{{ form }}
+
+
+<input type="submit" value="login">
+<input type="hidden" name="next" value="{{ next }}">
+
+
+</form>
+
+
+
+<H2>
+<a href="{% url 'campus_crash:register' %}">REGISTER INSTEAD</a>
+
+
+{% endblock %}

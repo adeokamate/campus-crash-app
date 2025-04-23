@@ -1,0 +1,37 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block style %} 
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<h1>SIGN UP PAGE</h1>
+
+<div class="signup-container">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+<h2 style="text-align: center;">FILL THE SIGN UP PAGE BELOW </h2>
+<form action="{% url 'campus_crash:register' %}" method="post">
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="Submit">
+
+
+</form>
+</div>
+<h4>
+    ALREADY HAVE AN ACCOUNT? PLEASE
+    <a href="{% url 'campus_crash:login' %}"> Login</a>
+</h4>
+
+{% endblock %}

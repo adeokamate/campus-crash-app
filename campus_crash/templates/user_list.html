@@ -1,0 +1,37 @@
+{% extends 'master.html' %}
+
+{% load static %}
+
+{% block style %} 
+<link rel="stylesheet" href="{% static 'css/user_list.css' %}">
+{% endblock %}
+
+{% block content %}
+  <h1>Member List</h1>
+  <ul>
+    {% for member in users %}
+      <li>
+        <div class="member-card">
+          <!-- Display Profile Photo -->
+          {% if member.profile_pic %}
+          <br>
+          <br>
+            <img src="{{ member.profile_pic.url }}" alt="{{ member.username }}'s Profile Photo" class="profile-photo">
+          {% else %}
+            <img src="{% static 'images/default-profile.jpg' %}" alt="Default Profile Photo" class="profile-photo">
+          {% endif %}
+         
+          <!-- Display Member Information -->
+          <h3>{{ member.first_name }} {{ member.last_name }}</h3>  <!-- Or replace with a custom name field if you have one -->
+          <p>Academic Year: {{ member.get_academic_year_display }}</p>  <!-- Display the choice value -->
+          <p>Course: {{ member.course }}</p>
+          <p>Tribe: {{ member.tribe }}</p>
+          <br>
+          <br>
+          <a href="{% url 'campus_crash:chat_room' member.id %}" class="chat-link">Chat with {{ member.first_name }} {{ member.last_name }}</a>
+
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

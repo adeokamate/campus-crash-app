@@ -1,0 +1,44 @@
+{% extends 'master.html' %}
+
+{% include 'mytable.css' %}
+{% block content %}
+
+<h1>ALL CAMPUS CRASH MEMBERS</h1>
+<table>s
+<caption> ALL MY MEMBERS</caption>
+
+<tr>
+<th>id</th>
+<th colspan="2"> Name</th>
+<th>EMAIL </th>
+</tr>
+{% for x in  allmembers %}
+<tr>
+    <td>{{x.id}}</td>
+    <td>{{x.first_name}} </td>
+    <td>{{last_name}}</td>
+    <td> {{x.student_email}}</td>
+
+</tr>
+
+{% endfor %}
+
+
+
+
+</table>
+
+
+{% endblock %}
+
+
+
+{% block content %}
+{% for user in users %}
+<div class="user-item">
+    <p>{{ user.username }}</p>
+    <a href="{% url 'campus_crash:chat_room' user.id %}" class="chat-link">Chat with {{ user.username }}</a>
+
+</div>
+{% endfor %}
+{% endblock %}

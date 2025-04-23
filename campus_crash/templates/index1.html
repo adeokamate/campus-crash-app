@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Crash - Campus Social Network</title>
+    <style>
+    
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/40" alt="Campus Crash Logo">
+            <h1>Campus Crash</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Network</a></li>
+                <li><a href="#"><i class="fas fa-bell"></i> Notifications</a></li>
+                <li><a href="#" id="openChat"><i class="fas fa-comment-dots"></i> Messages</a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <img src="https://via.placeholder.com/40" alt="Profile" class="profile-pic">
+            <span>John Doe</span>
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#"><i class="fas fa-user-friends"></i> Friends</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                <li><a href="#"><i class="fas fa-book"></i> Study Groups</a></li>
+                <li><a href="#"><i class="fas fa-utensils"></i> Campus Eats</a></li>
+                <li><a href="#" id="openPickupLines"><i class="fas fa-heart"></i> Pickup Lines</a></li>
+                <li><a href="#"><i class="fas fa-question-circle"></i> Help</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+        
+        <main class="main-content">
+            <div class="post-form">
+                <textarea placeholder="What's on your mind?"></textarea>
+                <div class="post-actions">
+                    <div class="attachment-options">
+                        <button title="Add photo"><i class="fas fa-image"></i></button>
+                        <button title="Add file"><i class="fas fa-paperclip"></i></button>
+                        <button title="Add video"><i class="fas fa-video"></i></button>
+                    </div>
+                    <button class="post-btn">Post</button>
+                </div>
+            </div>
+            
+            <div class="posts">
+                <div class="post">
+                    <div class="post-header">
+                        <img src="https://via.placeholder.com/40" alt="User" class="profile-pic">
+                        <div>
+                            <div class="post-user">Jane Smith</div>
+                            <div class="post-time">2 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Just finished my final project! So excited to present it tomorrow. Anyone else in Computer Science 402?</p>
+                    </div>
+                    <img src="https://via.placeholder.com/600x400" alt="Post image" class="post-image">
+                    <div class="post-actions">
+                        <div class="post-action"><i class="far fa-thumbs-up"></i> Like</div>
+                        <div class="post-action"><i class="far fa-comment"></i> Comment</div>
+                        <div class="post-action"><i class="fas fa-share"></i> Share</div>
+                    </div>
+                </div>
+                
+                <div class="post">
+                    <div class="post-header">
+                        <img src="https://via.placeholder.com/40" alt="User" class="profile-pic">
+                        <div>
+                            <div class="post-user">Mike Johnson</div>
+                            <div class="post-time">5 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Looking for study partners for the upcoming Economics exam. We can meet at the library tomorrow at 2pm. DM me if interested!</p>
+                    </div>
+                    <div class="post-actions">
+                        <div class="post-action"><i class="far fa-thumbs-up"></i> Like</div>
+                        <div class="post-action"><i class="far fa-comment"></i> Comment</div>
+                        <div class="post-action"><i class="fas fa-share"></i> Share</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <aside class="right-sidebar">
+            <div class="online-users">
+                <h3>Online Now</h3>
+                <div class="user-list">
+                    <div class="user-item">
+                        <div class="user-status"></div>
+                        <img src="https://via.placeholder.com/30" alt="User" class="profile-pic">
+                        <span>Sarah Williams</span>
+                    </div>
+                    <div class="user-item">
+                        <div class="user-status"></div>
+                        <img src="https://via.placeholder.com/30" alt="User" class="profile-pic">
+                        <span>David Brown</span>
+                    </div>
+                    <div class="user-item">
+                        <div class="user-status"></div>
+                       
