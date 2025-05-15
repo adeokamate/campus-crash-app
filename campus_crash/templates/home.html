@@ -1,0 +1,67 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block title %}Home | Campus Crash{% endblock %}
+
+{% block content %}
+<div class="home-page">
+    
+<h2 style="margin-top: 1rem;">👋 Welcome back, {{ user.first_name }}!</h2>
+
+    <div class="dashboard">
+        <!-- Profile Section -->
+        <div class="section">
+            <h2>👤 Profile</h2>
+            <img src="{{ user.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+            <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+            <p><strong>Email:</strong> {{ user.student_email }}</p>
+            <p><strong>Student Number:</strong> {{ user.student_number }}</p>
+            <p><a href="{% url 'campus_crash:settings' %}" class="btn">⚙️ Edit Profile</a></p>
+        </div>
+
+        <!-- Chats -->
+        <div class="section">
+            <h2>💬 Your Chats</h2>
+            {% if chats %}
+                <ul>
+                    {% for chat in chats %}
+                        {% if chat.sender == user %}
+                            {% with chat.receiver as partner %}
+                                <li>
+                                    <a href="{% url 'campus_crash:chat_detail' chat.id %}">
+                                        {{ partner.username }}
+                                    </a>
+                                </li>
+                            {% endwith %}
+                        {% else %}
+                            {% with chat.sender as partner %}
+                                <li>
+                                    <a href="{% url 'campus_crash:chat_detail' chat.id %}">
+                                        {{ partner.username }}
+                                    </a>
+                                </li>
+                            {% endwith %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No chats found.</p>
+            {% endif %}
+        </div>
+
+        <!-- Quick Links -->
+        <div class="section">
+            <h2>⚡ Quick Actions</h2>
+            <ul>
+                <li><a href="{% url 'campus_crash:user_list' %}">👥 Browse Users</a></li>
+                <li><a href="{% url 'campus_crash:match_make' %}">🔔 Make match</a></li>
+                <li><a href="{% url 'campus_crash:messages' %}">📩 Send Message</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

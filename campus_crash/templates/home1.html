@@ -1,0 +1,61 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block style %} 
+<link rel="stylesheet" href="{% static 'css/home.css' %}?v={{ timestamp }}">
+{% endblock %}
+{% block title %}Home | Campus Crush{% endblock %}
+
+
+
+
+
+
+
+{% block content %}
+<div class="home-page">
+    <h1>Welcome, {{ user.username }}!</h1>
+    {% if user.profile_pic %}
+    <img src="{{ user.profile_pic.url }}" alt="Profile Picture" style="width: 120px; border-radius: 50%;">
+{% else %}
+    <img src="{% static 'images/default-avatar.png' %}" alt="Default Avatar" style="width: 120px; border-radius: 50%;">
+{% endif %}
+
+    <div class="dashboard">
+        <div class="section">
+            <h3>Your Profile</h3>
+            <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+            <p>Email: {{ user.email }}</p>
+            <p>Student Number: {{ user.student_email }}</p>
+            <p><a href="{% url 'campus_crash:settings' %}">Edit Profile</a></p>
+        </div>
+
+        <div class="section">
+            <h3>Recent Notifications</h3>
+            <ul>
+                <li>Notification 1</li>
+                <li>Notification 2</li>
+                <li>Notification 3</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Your Chats</h3>
+            <ul>
+                <li><a href="#">Chat with User1</a></li>
+                <li><a href="#">Chat with User2</a></li>
+                <li><a href="#">Chat with User3</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Quick Actions</h3>
+            <ul>
+                <li><a href="{% url 'campus_crash:user_list' %}">View Users</a></li>
+                <li><a href="{% url 'campus_crash:notifications' %}">View Notifications</a></li>
+                <li><a href="{% url 'campus_crash:messages' %}">Send Message</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

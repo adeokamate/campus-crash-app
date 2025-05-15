@@ -1,8 +1,39 @@
-{% extends 'master.html' %}
 
-{% block content %}
-    <h1>Welcome to Campus Crash</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>WELCOME</title>
+</head>
+<body>
     
-    <!-- Your home page content goes here -->
-{% endblock %}
+<div class="slideshow" style="height: 750px; ">
+    <img src="{% static 'images/love2.jpg' %}" alt="">
+    <img src="{% static 'images/pexels-ohshineon-18397.jpg' %}" alt="">
+    <img src="{% static 'images/love1.jpeg' %}" alt="">
+    <img src="{% static 'images/love2.jpg' %}" alt="">
+   
+</div>
 
+
+
+
+
+
+<div class="hero_section">
+    <div class="hero-texts">
+        <h1>Welcome to Campus Crush 💙</h1>
+        <br><br>
+      <p> <strong> A safe space to connect with fellow Makerere students. Verified. Private. Trusted.</strong></p>
+       <br><br><br>
+        <a href="{% url 'campus_crash:register' %}" class="cta-buttons">Create Account</a>
+        <a href="{% url 'campus_crash:login' %}" class="cta-buttons secondary">Login</a>
+    </div>
+</div>
+
+
+</body>
+</html>

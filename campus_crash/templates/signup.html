@@ -23,15 +23,33 @@
 <h2 style="text-align: center;">FILL THE SIGN UP PAGE BELOW </h2>
 <form action="{% url 'campus_crash:register' %}" method="post">
 {% csrf_token %}
-{{ form }}
-<input type="submit" value="Submit">
+<form action="{% url 'campus_crash:register' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <p>{{ form.username.label_tag }} {{ form.username }}</p>
+    <p>{{ form.student_email.label_tag }} {{ form.student_email }}</p>
+    <p>{{ form.first_name.label_tag }} {{ form.first_name }}</p>
+    <p>{{ form.last_name.label_tag }} {{ form.last_name }}</p>
+    <p>{{ form.age.label_tag }} {{ form.age }}</p>
+    <p>{{ form.profile_pic.label_tag }} {{ form.profile_pic }}</p>
+    <p>{{ form.academic_year.label_tag }} {{ form.academic_year }}</p>
+    <p>{{ form.course.label_tag }} {{ form.course }}</p>  <!-- Placeholder will show here -->
+    <p>{{ form.tribe.label_tag }} {{ form.tribe }}</p>
+    <p>{{ form.password1.label_tag }} {{ form.password1 }}</p>
+    <p>{{ form.password2.label_tag }} {{ form.password2 }}</p>
+
+    <input type="submit" value="Submit">
+</form>
+
 
 
 </form>
 </div>
 <h4>
     ALREADY HAVE AN ACCOUNT? PLEASE
-    <a href="{% url 'campus_crash:login' %}"> Login</a>
+    <br><br>
+   
+  <button >  <a href="{% url 'campus_crash:login' %}"> <h3 style="color:white;">Login</h3></button>
 </h4>
 
 {% endblock %}

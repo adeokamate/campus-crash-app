@@ -28,7 +28,8 @@
           <p>Tribe: {{ member.tribe }}</p>
           <br>
           <br>
-          <a href="{% url 'campus_crash:chat_room' member.id %}" class="chat-link">Chat with {{ member.first_name }} {{ member.last_name }}</a>
+      
+<a href="{% url 'campus_crash:chat_with_user' member.id %}" class="chat-link">Chat with {{ member.first_name }} {{ member.last_name }}</a>
 
         </div>
       </li>

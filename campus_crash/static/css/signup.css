@@ -1,25 +1,118 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #f7f7f7, #e0e0e0);
+    margin: 0;
+    padding: 0;
+}
+
+/* Signup Container */
 .signup-container {
-    width: 40%;
-    margin: auto;
-    padding: 20px;
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.signup-container:hover {
+    transform: scale(1.01);
+}
+
+/* Headings */
+h1, h2 {
+    color: #c4001d;
     text-align: center;
+    margin-bottom: 15px;
 }
-input {
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 12px;
+    margin: 10px 0 20px 0;
+    display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: border 0.3s;
 }
-button {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
+
+input:focus,
+select:focus {
+    border: 2px solid #c4001d;
+    outline: none;
+}
+
+/* Submit Button */
+input[type="submit"] {
     width: 100%;
-    border-radius: 5px;
+    background-color: #c4001d;
+    color: white;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
 }
+
+input[type="submit"]:hover {
+    background-color: #a00017;
+    transform: scale(1.02);
+}
+
+/* Message Styling */
+.messages {
+    list-style-type: none;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #fff4f4;
+    border-left: 6px solid #c4001d;
+    border-radius: 8px;
+}
+
+.messages li {
+    color: #a00017;
+    font-weight: bold;
+}
+
+/* Link Styling */
+a {
+    color: #c4001d;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #a00017;
+}
+
+/* Login Redirect Text */
+h4 {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: normal;
+}
+
+button {
+    background-color: #c4001d;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
 button:hover {
-    opacity: 0.8;
+    background-color: #a00017;
+    transform: scale(1.03);
 }

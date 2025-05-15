@@ -3,47 +3,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Campus Crash{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-    {% block style %}{% endblock %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Campus Crash{% endblock %}</title>
+
+  <link rel="stylesheet" href="{% static 'css/master.css' %}">
+  <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+
+  {% block style %}{% endblock %}
 </head>
 <body>
 
-    <!-- Navigation Bar (Menu) -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="{% url 'campus_crash:index' %}">🏠 Home</a></li>
-            <li><a href="{% url 'campus_crash:user_list' %}" >👥 Users</a></li>
-            <li><a href="{% url 'campus_crash:notifications' %}">🔔 Notifications</a></li>
-            <!-- <li><a href="">📩 Messages</a></li> -->
-            <li><a href="{% url 'campus_crash:settings' %}">⚙️ Settings</a></li>
-            <li><a href="{% url 'campus_crash:register' %}">🔑 sign up</a></li>
-            <li><a href="{% url 'campus_crash:login' %}">🔑 Login</a></li>
-            <li><a href="{% url 'campus_crash:logout' %}"> LOGOUT</a></li>
-        </ul>
-    </nav> 
-
-    <!-- Main Content -->
-    <div class="content">
-        {% block content %} {% endblock %}
+  <!-- 🔝 Responsive Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      
+     <a href="{% url 'campus_crash:home' %}"> <img src="{% static 'images/mak-logo.png' %}" height="40px" width="40px" alt="Makerere Logo" class="nav-logo"></a>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>📞 Contact Info: 0754065950</p>
-            <p>📧 Email Support: deotechnologiesl@gmail.com</p>
-            <div class="social-media">
-                <a href="https://www.facebook.com" target="_blank">🌐 Facebook</a> |
-                <a href="https://www.twitter.com" target="_blank">🌐 X </a> |
-                <a href="https://www.instagram.com" target="_blank">🌐 Instagram</a>
-            </div>
-            <p>© Copyright 2025 Campus Crash</p>
-        </div>
-    </footer>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    <ul class="nav-links" id="navMenu">
+      <li><a href="{% url 'campus_crash:home' %}">🏠 Home</a></li>
+      <li><a href="{% url 'campus_crash:user_list' %}">👥 Users</a></li>
+      <li><a href="{% url 'campus_crash:match_make' %}">🔍 Find a Match</a></li>
+      <li><a href="{% url 'campus_crash:messages' %}">📩 Messages</a></li>
+      <li><a href="{% url 'campus_crash:settings' %}">⚙️ Settings</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <ul>
+      <li><a href="{% url 'campus_crash:support' %}">⚙️ GET HELP</a></li>
+     <li><a href="{% url 'campus_crash:logout' %}" class="logout-link">🚪 Logout</a></li> 
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 🌟 Hero Section -->
+  <div class="hero-section">
+    <div class="hero-image-container">
+      <img src="{% static 'images/mak.jpg' %}" alt="Makerere University" class="hero-image">
+    </div>
+    <div class="hero-text">
+      <h1>🌍 Welcome to Campus Crash</h1>
+      <p>Where Makerere's brightest connect, chat, and match!</p>
+    </div>
+  </div>
+
+  <!-- Main Page Content -->
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+
+  <!-- 👣 Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>📞 Contact: 0754065950</p>
+      <p>📧 Email: deotechnologiesl@gmail.com</p>
+      <div class="social-media">
+        <a href="https://www.facebook.com" target="_blank">🌐 Facebook</a> |
+        <a href="https://www.twitter.com" target="_blank">🌐 X</a> |
+        <a href="https://www.instagram.com" target="_blank">🌐 Instagram</a>
+      </div>
+      <p>© 2025 Campus Crash. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.navbar-links');
+
+    hamburger.addEventListener('click', function () {
+      navLinks.classList.toggle('show');
+    });
+  });
+</script>
 
 </body>
 </html>

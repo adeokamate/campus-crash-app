@@ -1,6 +1,26 @@
 {% extends 'master.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/settings.css' %}">
+{% endblock %}
 
 {% block content %}
-    <h1>Welcome to settings page</h1>
-    <!-- Your home page content goes here -->
+<div class="settings-container">
+    <h2>Update Your Profile</h2>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+</form>
+</div>
 {% endblock %}

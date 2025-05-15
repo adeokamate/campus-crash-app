@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'campus_crash',
 ]
 
+SITE_ID = 1
 # specify the custom user model 
 AUTH_USER_MODEL = 'campus_crash.User'
 
@@ -118,6 +119,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'campus_crash.User'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -129,19 +131,35 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+ACCOUNT_FORMS = {
+    'signup': 'core.forms.RegisterForm',  # Adjust to your app name
+}
 
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True  # Optional
+ACCOUNT_LOGIN_METHODS = {'username', 'email'}
+ACCOUNT_RATE_LIMITS = {
+    'login_failed': '5/m',  # Max 5 failed logins per minute
+}
+#ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
 #EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_FILE_PATH = "/tmp/app-messages" 
+#EMAIL_FILE_PATH = "/tmp/app-messages" 
 EMAIL_HOST = 'smtp.gmail.com' # Gmail SMTP Server
 EMAIL_PORT = 587 # TLS Port for Gmail
 EMAIL_USE_TLS = True  # Enable Transport Layer Security
 EMAIL_HOST_USER = "deoakamate@gmail.com"  # Replace with your Gmail
-EMAIL_HOST_PASSWORD = "jrqihydvufquadne "  # Use an App Password, NOT your real password
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # Email sender (Django will use this for sending emails)
+EMAIL_HOST_PASSWORD = 'jrqi hydv ufqu adne'  # Use an App Password, NOT your real password
+DEFAULT_FROM_EMAIL = 'deoakamate@gmail.com'  # Email sender (Django will use this for sending emails)
 
 # settings for profile pic
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+LOGIN_REDIRECT_URL = 'campus_crash:home'
+LOGIN_URL = 'campus_crash:login'
+
+ADMIN_EMAIL = 'deoakamate@gmail.com'
+DEFAULT_FROM_EMAIL = 'deoakamate@gmail.com'
+

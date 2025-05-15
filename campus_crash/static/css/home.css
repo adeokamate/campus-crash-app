@@ -1,0 +1,114 @@
+/* Layout */
+.home-page {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fdfcff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Welcome Message */
+.home-page h2:first-of-type {
+    font-size: 2rem;
+    color: #3b0764;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Dashboard Grid */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Section Cards */
+.section {
+    background: #ffffff;
+    border: 2px solid #e9d5ff;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 16px rgba(91, 33, 182, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(91, 33, 182, 0.15);
+}
+
+/* Section Headings */
+.section h2 {
+    font-size: 1.5rem;
+    color: #6b21a8;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ddd6fe;
+    padding-bottom: 0.5rem;
+}
+
+/* Text Content */
+.section p {
+    margin: 0.5rem 0;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Button Link */
+.section .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #7c3aed;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.section .btn:hover {
+    background-color: #5b21b6;
+}
+
+/* Chat List */
+.section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.section ul li {
+    margin-bottom: 0.75rem;
+    background-color: #f3e8ff;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.section ul li a {
+    color: #4c1d95;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.section ul li:hover {
+    background-color: #e9d5ff;
+}
+
+/* Quick Actions */
+.section ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Improvements */
+@media (max-width: 600px) {
+    .home-page {
+        padding: 1rem;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}

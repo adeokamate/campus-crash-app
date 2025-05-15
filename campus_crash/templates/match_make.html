@@ -1,0 +1,43 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/match_make.css' %}">
+{% endblock %}
+
+{% block title %}Find Your Match{% endblock %}
+
+{% block content %}
+<div class="match-page">
+    <h2>🎯 Your Best Matches</h2>
+
+    {% if matches %}
+        <ul class="match-list">
+            {% for item in matches %}
+                {% with match=item.user %}
+                <li class="match-item">
+                    <div class="profile">
+                        {% if match.profile_pic %}
+                            <img src="{{ match.profile_pic.url }}" alt="Profile Picture" class="profile-pic">
+                        {% else %}
+                            <img src="{% static 'images/default-profile.png' %}" alt="Default Pic" class="profile-pic">
+                        {% endif %}
+                    </div>
+                    <div class="info">
+                        <strong>{{ match.first_name }} {{ match.last_name }}</strong> <br>
+                        📚 {{ match.course }} | 🎓 {{ match.academic_year }} | 🌍 {{ match.tribe }} <br>
+                        🔢 Match Score: {{ item.score }}/4
+                        <br>
+                        <a href="{% url 'campus_crash:chat_with_user' match.id %}" class="btn">💌 Message</a>
+
+                        
+                    </div>
+                </li>
+                {% endwith %}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No potential matches found. Try updating your profile for better results.</p>
+    {% endif %}
+</div>
+{% endblock %}

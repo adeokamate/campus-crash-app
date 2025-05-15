@@ -1,0 +1,25 @@
+.support-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    background: pink;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.video-placeholder {
+    margin-bottom: 1.5rem;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #b20000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #8a0000;
+}

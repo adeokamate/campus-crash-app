@@ -1,46 +1,43 @@
 {% extends 'master.html' %}
+{% load static %}
 
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
 
+{% block content %}
+<div class="login-container">
+    <h2>Welcome Back!</h2>
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+    {% if form.errors %}
+    <p class="error">Your username and password didn't match. Please try again.</p>
+    {% endif %}
 
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-{% endif %}
-{% endif %}
-
-        {% if messages %}
-
-        {% for message in message %}
-            {{ messages }}
-        {% endfor %}
-
+    {% if next %}
+        {% if user.is_authenticated %}
+        <p class="error">Your account doesn't have access to this page.</p>
+        {% else %}
+        <p>Please login to see this page.</p>
         {% endif %}
+    {% endif %}
 
- {% block content %}
-<form method="post" action="{% url 'campus_crash:login' %}">
-{% csrf_token %}
-{{ form.non_field_errors }}
+    {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
 
-{{ form }}
+    <form method="post" action="{% url 'campus_crash:login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Login">
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
 
-
-<input type="submit" value="login">
-<input type="hidden" name="next" value="{{ next }}">
-
-
-</form>
-
-
-
-<H2>
-<a href="{% url 'campus_crash:register' %}">REGISTER INSTEAD</a>
-
-
+    <div class="register-link">
+    <a href="{% url 'campus_crash:register' %}">Don't have an account? Register</a>
+</div>
+</div>
 {% endblock %}

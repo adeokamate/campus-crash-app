@@ -1,0 +1,47 @@
+{% extends 'master.html' %}
+
+{% load static %}
+
+{% block style %} 
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block title %} EMAIL Verification {% endblock %}
+
+{% block content %}
+    
+   
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow p-4">
+                <h4 class="text-center mb-3">Email Verification</h4>
+                <p class="text-center">A verification code has been sent to your email.</p>
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="code" class="form-label">Enter Verification Code</label>
+                        <input type="text" name="code" id="code" class="form-control" maxlength="6" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Verify</button>
+                </form>
+
+                <p class="text-center mt-3 text-muted">Didn’t receive the code? <a href="#">Resend</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

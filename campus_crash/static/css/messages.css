@@ -1,0 +1,32 @@
+.chat-list {
+    list-style: none;
+    padding: 0;
+}
+
+.chat-item {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    transition: background 0.3s;
+}
+
+.chat-item:hover {
+    background-color: #ffeedd;
+}
+
+.chat-item a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.chat-item.unread {
+    background-color: #fff3f3;
+    font-weight: bold;
+}
+
+.unread-dot {
+    color: red;
+    margin-left: 8px;
+}

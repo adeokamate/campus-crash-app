@@ -1,0 +1,56 @@
+{% extends 'master.html' %}
+
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/messages.css' %}">
+{% endblock %}
+
+
+{% block title %}Messages{% endblock %}
+
+{% block content %}
+<div class="messages-page">
+    <h2>📩 Your Messages</h2>
+
+    <div class="messages-container">
+        {% if chats %}
+            <ul class="chat-list">
+                {% for chat in chats %}
+                    {% if chat.sender == user %}
+                        {% with chat.receiver as chat_user %}
+                            <li class="chat-item {% if not chat.is_read and chat.receiver == user %}unread{% endif %}">
+                                <a href="{% url 'campus_crash:chat_with_user' chat_user.id %}">
+                                    <strong>🧑 {{ chat_user.username }}</strong>
+                                    {% if not chat.is_read and chat.receiver == user %}
+                                        <span class="unread-dot">●</span>
+                                    {% endif %}
+                                    <br>
+                                    <small>Last message: {{ chat.message|truncatewords:10 }}</small><br>
+                                    <small><i>{{ chat.timestamp|date:"M d, Y H:i" }}</i></small>
+                                </a>
+                            </li>
+                        {% endwith %}
+                    {% else %}
+                        {% with chat.sender as chat_user %}
+                            <li class="chat-item {% if not chat.is_read and chat.receiver == user %}unread{% endif %}">
+                                <a href="{% url 'campus_crash:chat_with_user' chat_user.id %}">
+                                    <strong>🧑 {{ chat_user.username }}</strong>
+                                    {% if not chat.is_read and chat.receiver == user %}
+                                        <span class="unread-dot">●</span>
+                                    {% endif %}
+                                    <br>
+                                    <small>Last message: {{ chat.message|truncatewords:10 }}</small><br>
+                                    <small><i>{{ chat.timestamp|date:"M d, Y H:i" }}</i></small>
+                                </a>
+                            </li>
+                        {% endwith %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You have no messages yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

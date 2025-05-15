@@ -1,0 +1,17 @@
+{% extends 'master.html' %}
+{% block title %}Chat Detail{% endblock %}
+
+{% block content %}
+<div class="chat-detail">
+    <h2>
+        Chat with 
+        {% if user == chat.sender %}
+            {{ chat.receiver.username }}
+        {% else %}
+            {{ chat.sender.username }}
+        {% endif %}
+    </h2>
+    <p><strong>Message:</strong> {{ chat.message }}</p>
+    <p><small><i>Sent on: {{ chat.timestamp|date:"M d, Y H:i" }}</i></small></p>
+</div>
+{% endblock %}
