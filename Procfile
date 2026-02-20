@@ -1,1 +1,1 @@
-web: gunicorn campus_crash.wsgi
+web: gunicorn SDP.wsgi
