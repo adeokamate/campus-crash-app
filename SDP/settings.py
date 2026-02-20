@@ -27,7 +27,11 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.onrender.com', '.railway.app']
+ALLOWED_HOSTS = ['.onrailway.app']
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://web-production-f31a7.up.railway.app/,
+]
 
 
 # Application definition
