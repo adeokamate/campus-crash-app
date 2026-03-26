@@ -23,4 +23,4 @@ Developed by Kamate Deo as part of the Safer Campuses Campaign at Makerere Unive
 
 ---
 
-This project is part of the Safer Campuses Campaign by Makerere University Jinja Campus.
+
