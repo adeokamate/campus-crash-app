@@ -1,7 +1,6 @@
 # Campus Crash App
 
-A Django web application built to support campus safety and awareness.  
-Developed by Kamate Deo as part of the Safer Campuses Campaign at Makerere University Jinja Campus.
+A Django web application built to support campus
 
 ## Features
 - User login system
