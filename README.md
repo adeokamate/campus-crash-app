@@ -22,5 +22,7 @@ Developed by Kamate Deo as part of the Safer Campuses Campaign at Makerere Unive
 - 💬 [Chat on WhatsApp](https://wa.me/256776360391)
 
 ---
-
+## Contributer
+Drake Mike 
+drakemike587@gmail.com
 
